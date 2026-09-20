@@ -1,0 +1,26 @@
+{
+  "name": "中国語穴埋めタイピング学習 - HSK4級",
+  "short_name": "中国語穴埋め",
+  "description": "HSK4級レベルの中国語穴埋めタイピング学習アプリ。オフラインで利用できます。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#fefce8",
+  "theme_color": "#dc2626",
+  "lang": "ja",
+  "icons": [
+    {
+      "src": "./icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
