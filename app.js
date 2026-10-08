@@ -11,7 +11,16 @@ function loadWrongIds() {
   try {
     const raw = localStorage.getItem(WRONG_IDS_STORAGE_KEY);
     const ids = raw ? JSON.parse(raw) : [];
-    return Array.isArray(ids) ? ids : [];
+    if (!Array.isArray(ids)) return [];
+
+    // 問題を入れ替えたあとに、今の問題集に存在しない古いID(前のバージョンの苦手記録)が
+    // 残っていると、別の問題と混ざってしまうため、ここで取り除いて保存し直す
+    const validIds = window.QUESTIONS.map((q) => q.id);
+    const cleaned = ids.filter((id) => validIds.includes(id));
+    if (cleaned.length !== ids.length) {
+      saveWrongIds(cleaned);
+    }
+    return cleaned;
   } catch (e) {
     // 保存データが壊れていた場合は空の状態から始める
     return [];
